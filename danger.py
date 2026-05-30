@@ -17,8 +17,8 @@ except ImportError:
     print("⚠️ danger_ff_version_updater not installed. Using static config.")
 
 STATIC_CONFIG = {
-    "IND": {
-        "client_url": "client.ind.freefiremobile.com",
+    "BD": {
+        "client_url": "https://clientbp.ggpolarbear.com",
         "server_url": "https://loginbp.ggpolarbear.com",
         "release_version": "OB53",
         "client_version": "1.123.10"
@@ -60,8 +60,8 @@ def get_version_config(region):
     global version_config, last_update
     if time.time() - last_update > UPDATE_INTERVAL:
         update_version_config()
-    if region == "IND":
-        return version_config.get("IND", STATIC_CONFIG["IND"])
+    if region == "BD":
+        return version_config.get("BD", STATIC_CONFIG["BD"])
     elif region in ["BR", "US", "NA", "SAC"]:
         return version_config.get("AMERICA", STATIC_CONFIG["AMERICA"])
     else:
@@ -85,14 +85,14 @@ def encrypt_message(plaintext: bytes) -> bytes:
 
 # ---------- Credentials mapping ----------
 REGION_CRED = {
-    "IND":    {"uid": "4765721896", "password": "A3FE934240965FD0092B6A4B87FDDFA282F97119095288100B7645EB3AE77F8B"},
-    "AMERICA":{"uid": "4765721099", "password": "C60B035E09E4F41DDE31921CD4338BEF751A14532B3FFEC044056BB6C1F33763"},
+    "BD":    {"uid": "4338111611", "password": "CKR_KO49Q__UGIRB"},
+    "AMERICA":{"uid": "4338112183", "password": "CKR_KO49Q__UGIRB"},
     "OTHERS": {"uid": "4765722285", "password": "F3FF4573502AF0824CD485193077D1C9415BF2D569E18B699A070DE6F1846068"}
 }
 
 def get_cred(region):
-    if region == "IND":
-        return REGION_CRED["IND"]
+    if region == "BD":
+        return REGION_CRED["BD"]
     elif region in ["BR","US","NA","SAC"]:
         return REGION_CRED["AMERICA"]
     return REGION_CRED["OTHERS"]
